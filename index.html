@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Inspectra is a risk-based inspection dashboard prototype with explainable trust and risk scores." />
+  <meta name="theme-color" content="#0b1020" />
+  <title>Inspectra — Risk-based Inspections</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="Inspectra home">
+        <span class="brand-mark">I<span>.</span></span>
+        <span><strong>inspectra</strong><small>FIELD INTELLIGENCE</small></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav">
+        <a class="nav-item active" href="#overview"><span>◫</span> Overview</a>
+        <a class="nav-item" href="#inspections"><span>▤</span> Inspections <span class="nav-count" id="navCount">8</span></a>
+        <a class="nav-item" href="#alerts"><span>⚑</span> Risk alerts <span class="nav-dot"></span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="demo-note"><span class="live-dot"></span><div><strong>Demo environment</strong><small>Sample data only</small></div></div>
+        <div class="profile"><div class="avatar">MM</div><div><strong>Murshid</strong><small>Project workspace</small></div><span class="profile-menu">•••</span></div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="overview">
+      <header class="topbar">
+        <button class="mobile-menu" id="menuToggle" aria-label="Toggle menu">☰</button>
+        <div><div class="eyebrow">MONDAY, OCTOBER 13, 2026</div><h1>Inspection overview</h1></div>
+        <div class="top-actions"><span class="demo-pill"><span class="live-dot"></span> Prototype</span><button class="primary-btn" id="addBtn">＋ New inspection</button></div>
+      </header>
+
+      <section class="welcome-row">
+        <div><h2>Good work starts with <em>clear evidence.</em></h2><p>Spot risk earlier. Understand every score. Keep field work accountable.</p></div>
+        <div class="date-chip">◷ &nbsp; Last 30 days <span>⌄</span></div>
+      </section>
+
+      <section class="stats-grid" aria-label="Summary metrics">
+        <article class="stat-card"><div class="stat-top"><span>Total inspections</span><span class="stat-icon violet">▤</span></div><div class="stat-value" id="totalStat">128</div><div class="stat-foot"><span class="trend">↑ 12.8%</span> vs previous period</div><div class="mini-bars" aria-hidden="true"><i style="height:25%"></i><i style="height:38%"></i><i style="height:31%"></i><i style="height:52%"></i><i style="height:46%"></i><i style="height:70%"></i><i style="height:62%"></i><i style="height:88%"></i><i style="height:76%"></i><i style="height:100%"></i></div></article>
+        <article class="stat-card"><div class="stat-top"><span>Needs attention</span><span class="stat-icon orange">⚑</span></div><div class="stat-value" id="riskStat">12</div><div class="stat-foot"><span class="warning">4 high risk</span> require review</div><div class="stat-progress"><span style="width:34%"></span></div><small class="muted">34% of flagged inspections reviewed</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Evidence verified</span><span class="stat-icon green">✓</span></div><div class="stat-value">94.2<span class="value-unit">%</span></div><div class="stat-foot"><span class="trend">↑ 3.4%</span> verification rate</div><div class="ring-row"><div class="ring"><span>94<small>%</small></span></div><small class="muted">Evidence completeness<br/>across sample records</small></div></article>
+        <article class="stat-card"><div class="stat-top"><span>Average trust score</span><span class="stat-icon blue">◇</span></div><div class="stat-value" id="trustStat">82<span class="value-unit">/100</span></div><div class="stat-foot"><span class="trend">↑ 5 points</span> this period</div><div class="score-track"><span style="width:82%"></span></div><small class="muted">Based on demo verification signals</small></article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel chart-panel">
+          <div class="panel-heading"><div><h3>Inspection activity</h3><p>Submitted vs. verified · sample data</p></div><button class="subtle-btn" id="chartToggle">Last 7 days⌄</button></div>
+          <div class="chart-legend"><span><i class="legend-dot purple"></i> Submitted</span><span><i class="legend-dot mint"></i> Verified</span></div>
+          <div class="chart" id="activityChart" role="img" aria-label="Bar chart of submitted and verified inspections over seven days">
+            <div class="chart-y"><span>30</span><span>20</span><span>10</span><span>0</span></div>
+            <div class="chart-area"><div class="grid-lines"><i></i><i></i><i></i><i></i></div><div class="bar-groups">
+              <div class="bar-group"><div class="bars"><i class="bar submitted" style="height:45%"></i><i class="bar verified" style="height:32%"></i></div><small>Mon</small></div>
+              <div class="bar-group"><div class="bars"><i class="bar submitted" style="height:70%"></i><i class="bar verified" style="height:54%"></i></div><small>Tue</small></div>
+              <div class="bar-group"><div class="bars"><i class="bar submitted" style="height:55%"></i><i class="bar verified" style="height:45%"></i></div><small>Wed</small></div>
+              <div class="bar-group"><div class="bars"><i class="bar submitted" style="height:88%"></i><i class="bar verified" style="height:67%"></i></div><small>Thu</small></div>
+              <div class="bar-group"><div class="bars"><i class="bar submitted" style="height:65%"></i><i class="bar verified" style="height:50%"></i></div><small>Fri</small></div>
+              <div class="bar-group"><div class="bars"><i class="bar submitted" style="height:78%"></i><i class="bar verified" style="height:60%"></i></div><small>Sat</small></div>
+              <div class="bar-group"><div class="bars"><i class="bar submitted" style="height:40%"></i><i class="bar verified" style="height:28%"></i></div><small>Sun</small></div>
+            </div></div>
+          </div>
+        </article>
+
+        <article class="panel alerts-panel" id="alerts">
+          <div class="panel-heading"><div><h3>Priority alerts</h3><p>Ranked by explainable risk score</p></div><span class="alert-count" id="alertCount">3 active</span></div>
+          <div class="alert-list" id="alertList">
+            <div class="alert-item"><span class="alert-symbol high">!</span><div class="alert-copy"><strong>Missing site evidence</strong><small>INS-1048 · North Zone</small><div class="alert-reason">No photo evidence attached</div></div><span class="risk-number high-text">82</span></div>
+            <div class="alert-item"><span class="alert-symbol medium">!</span><div class="alert-copy"><strong>Location mismatch</strong><small>INS-1041 · Central Zone</small><div class="alert-reason">Reported position outside site radius</div></div><span class="risk-number medium-text">64</span></div>
+            <div class="alert-item"><span class="alert-symbol medium">!</span><div class="alert-copy"><strong>Late submission</strong><small>INS-1039 · South Zone</small><div class="alert-reason">Submitted after assigned window</div></div><span class="risk-number medium-text">48</span></div>
+          </div>
+          <button class="text-btn" id="viewAlerts">View all flagged inspections <span>→</span></button>
+        </article>
+      </section>
+
+      <section class="panel inspections-panel" id="inspections">
+        <div class="panel-heading table-heading"><div><h3>Recent inspections</h3><p>Review status, evidence confidence and risk at a glance</p></div><div class="table-tools"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search site or ID…" aria-label="Search inspections"/></label><select id="statusFilter" aria-label="Filter by status"><option value="all">All statuses</option><option value="Verified">Verified</option><option value="In review">In review</option><option value="Flagged">Flagged</option></select><button class="subtle-btn export-btn" id="exportBtn">↓ Export CSV</button></div></div>
+        <div class="table-wrap"><table><thead><tr><th>INSPECTION</th><th>INSPECTOR</th><th>SUBMITTED</th><th>TRUST SCORE</th><th>RISK</th><th>STATUS</th><th></th></tr></thead><tbody id="inspectionRows"></tbody></table></div>
+        <div class="table-footer"><span id="resultCount">Showing 8 inspections</span><span>Demo records · not live government data</span></div>
+      </section>
+      <footer><span>INSPECTRA <span class="footer-dot">●</span> A student-built prototype</span><span>Explainable scores · Evidence-first workflow</span></footer>
+    </main>
+  </div>
+
+  <dialog id="inspectionDialog">
+    <form id="inspectionForm" method="dialog">
+      <div class="dialog-head"><div><div class="eyebrow">NEW RECORD</div><h2>Create inspection</h2></div><button type="button" class="close-btn" id="closeDialog" aria-label="Close">×</button></div>
+      <p class="dialog-intro">Add a demo record to explore the review workflow. This prototype stores changes in your browser only.</p>
+      <label>Site / facility<input name="site" required maxlength="70" placeholder="e.g. East Zone Warehouse"/></label>
+      <label>Inspector name<input name="inspector" required maxlength="50" placeholder="e.g. A. Kumar"/></label>
+      <label>Evidence status<select name="evidence"><option value="complete">Evidence attached</option><option value="missing">Evidence missing</option></select></label>
+      <label>Location check<select name="location"><option value="verified">Location verified</option><option value="mismatch">Location mismatch</option></select></label>
+      <div class="dialog-actions"><button type="button" class="subtle-btn" id="cancelDialog">Cancel</button><button type="submit" class="primary-btn">Create record</button></div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
